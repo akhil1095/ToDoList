@@ -1,0 +1,38 @@
+<% include ../partials/header.ejs %>
+<style>
+
+    body {
+
+        background-image: url("../images/12.JPG") ;}
+    h1,h2{
+
+        color:white;
+
+    }
+    label{
+        color: white;
+
+    }
+</style>
+<body>
+<main class="container">
+    <h1>Add a New Contact</h1>
+    <div class="col-sm-4">
+        <form method="post">
+            <fieldset class="form-group">
+                <label for="name">Name: *</label>
+                <input name="name" type="name" class="form-control" required autofocus />
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="number">Number: *</label>
+                <input name="number" type="text" class="form-control" required />
+            </fieldset>
+            <fieldset class="form-group text-right">
+                <input type="submit" class="btn btn-success" value="Submit"/>
+            </fieldset>
+        </form>
+    </div>
+
+</main>
+</body>
+<% include ../partials/footer.ejs %>

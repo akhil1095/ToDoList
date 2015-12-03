@@ -1,0 +1,57 @@
+<% include ../partials/header.ejs %>
+<style>
+
+    body {
+
+        background-image: url("../images/12.JPG") ;}
+    h1,h2{
+
+        color:white;
+    }
+
+</style>
+<body>
+<main class="container">
+    <h1>Contacts</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/contacts/addcontact" title="Add Contact"><i class="fa fa-plus-circle"></i> Add a new Contact</a>
+        </div> <!-- panel-heading -->
+        <% if (contacts.length > 0) { %>
+        <div class="panel-body table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (var i = 0; i < contacts.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= contacts[i].name %>
+                    </td>
+                    <td>
+                        <%= contacts[i].number %>
+                    </td>
+
+                    <td>
+                        <a href="/contacts/<%= contacts[i]._id %>" title="Edit" class="btn btn-primary">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
+                        <a href="/contacts/delete/<%= contacts[i]._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div> <!-- panel-body -->
+        <% } %>
+    </div><!-- panel panel-default -->
+
+</main>
+</body>
+<% include ../partials/footer.ejs %>
